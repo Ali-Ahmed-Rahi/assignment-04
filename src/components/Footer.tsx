@@ -1,4 +1,5 @@
 import { Facebook, Twitter, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -6,8 +7,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
         {/* Logo and Description */}
         <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-2">MyBrand</h2>
-          <p className="text-sm text-gray-400">
+          <Link
+            to="/books"
+            className="text-xl font-bold flex items-center gap-3"
+          >
+            <img
+              src="https://images.vexels.com/media/users/3/142789/isolated/preview/2bfb04ad814c4995f0c537c68db5cd0b-multicolor-swirls-circle-logo.png"
+              alt="Logo"
+              className="h-12 w-auto  rounded-full"
+            />
+            <h2>Gufia Library</h2>
+          </Link>
+          <p className="text-sm text-gray-400 md:mx-14">
             Empowering solutions for modern web development.
           </p>
         </div>
@@ -16,10 +27,15 @@ export default function Footer() {
         <div className="flex-1">
           <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-2 text-gray-300 text-sm">
-            <li><a href="/" className="hover:text-white">Home</a></li>
-            <li><a href="/about" className="hover:text-white">About</a></li>
-            <li><a href="/services" className="hover:text-white">Services</a></li>
-            <li><a href="/contact" className="hover:text-white">Contact</a></li>
+            <li>
+              <Link to="/books" className="hover:underline">All Books</Link>
+            </li>
+            <li>
+               <Link to="/create-book" className="hover:underline">Add Book</Link>
+            </li>
+            <li>
+              <Link to="/borrow-summary" className="hover:underline">Borrow Summary</Link>
+            </li>
           </ul>
         </div>
 
@@ -27,9 +43,15 @@ export default function Footer() {
         <div className="flex-1">
           <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
           <div className="flex space-x-4">
-            <a href="#" className="hover:text-blue-500"><Facebook /></a>
-            <a href="#" className="hover:text-blue-400"><Twitter /></a>
-            <a href="#" className="hover:text-pink-500"><Instagram /></a>
+            <a href="#" className="hover:text-blue-500">
+              <Facebook />
+            </a>
+            <a href="#" className="hover:text-blue-400">
+              <Twitter />
+            </a>
+            <a href="#" className="hover:text-pink-500">
+              <Instagram />
+            </a>
           </div>
         </div>
       </div>
