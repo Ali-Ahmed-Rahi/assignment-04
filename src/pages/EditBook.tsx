@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGetBookQuery, useUpdateBookMutation } from '../api/bookApi';
+import { ClockLoader } from 'react-spinners';
 
 export default function EditBook() {
   const { id } = useParams<{ id: string }>();
@@ -47,14 +48,16 @@ export default function EditBook() {
     navigate('/books');
   }
 
-  if (isLoading) return <p className="p-4">Loading...</p>;
+  if (isLoading) return <p className="flex justify-center items-center h-screen">
+        <ClockLoader size={50} color="#2563EB" />
+      </p>;
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-xl font-bold mb-4">Edit Book</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-xl mx-auto p-4 font-serif">
+      <form onSubmit={handleSubmit} className="space-y-4 border-2 p-5 border-gray-900 rounded-lg font-semibold">
+      <h1 className="text-xl font-bold mb-4 text-center">Edit Book</h1>
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="text"
           name="title"
           placeholder="Title"
@@ -63,7 +66,7 @@ export default function EditBook() {
           required
         />
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="text"
           name="author"
           placeholder="Author"
@@ -72,7 +75,7 @@ export default function EditBook() {
           required
         />
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="text"
           name="genre"
           placeholder="Genre"
@@ -81,7 +84,7 @@ export default function EditBook() {
           required
         />
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="text"
           name="isbn"
           placeholder="ISBN"
@@ -90,14 +93,14 @@ export default function EditBook() {
           required
         />
         <textarea
-          className="border p-2 w-full"
+          className="border p-2 w-full rounded-lg border-gray-900"
           name="description"
           placeholder="Description"
           value={formData.description}
           onChange={handleChange}
         />
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="number"
           name="copies"
           min={0}
@@ -107,7 +110,7 @@ export default function EditBook() {
           required
         />
         <button
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className="bg-gray-900 text-white px-4 py-2 rounded w-full"
           type="submit"
         >
           Update Book

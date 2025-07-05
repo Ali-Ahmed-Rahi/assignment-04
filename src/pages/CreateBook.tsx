@@ -30,11 +30,13 @@ export default function CreateBook() {
   }
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-xl font-bold mb-4">Add New Book</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-xl mx-auto p-4 font-serif">
+      <form onSubmit={handleSubmit} className="space-y-4 border-2 p-5 border-gray-900 rounded-lg">
+      <h1 className="text-xl font-bold mb-4 text-center">Add New Book</h1>
+      <div>
+        <p>Title</p>
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="text"
           name="title"
           placeholder="Title"
@@ -42,8 +44,11 @@ export default function CreateBook() {
           onChange={handleChange}
           required
         />
-        <input
-          className="border p-2 w-full"
+      </div>
+        <div>
+          <h1>Author</h1>
+          <input
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="text"
           name="author"
           placeholder="Author"
@@ -51,8 +56,11 @@ export default function CreateBook() {
           onChange={handleChange}
           required
         />
-        <input
-          className="border p-2 w-full"
+        </div>
+        <div>
+          <h1>Genre</h1>
+          <input
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="text"
           name="genre"
           placeholder="Genre"
@@ -60,8 +68,11 @@ export default function CreateBook() {
           onChange={handleChange}
           required
         />
-        <input
-          className="border p-2 w-full"
+        </div>
+        <div>
+          <h2>ISBN Number</h2>
+          <input
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="text"
           name="isbn"
           placeholder="ISBN"
@@ -69,15 +80,9 @@ export default function CreateBook() {
           onChange={handleChange}
           required
         />
-        <textarea
-          className="border p-2 w-full"
-          name="description"
-          placeholder="Description"
-          value={formData.description}
-          onChange={handleChange}
-        />
+        </div>
         <input
-          className="border p-2 w-full"
+          className="border p-2 w-full rounded-lg border-gray-900"
           type="number"
           name="copies"
           min={0}
@@ -86,7 +91,15 @@ export default function CreateBook() {
           onChange={handleChange}
           required
         />
-        <button className="bg-blue-600 text-white px-4 py-2 rounded" type="submit">
+        <textarea
+          className="border p-2 w-full rounded-lg border-gray-900"
+          name="description"
+          placeholder="Description"
+          value={formData.description}
+          onChange={handleChange}
+        />
+        
+        <button className="bg-gray-900 text-white px-4 py-2 rounded w-full" type="submit">
           Add Book
         </button>
       </form>
